@@ -1,0 +1,15 @@
+.navbar-name {
+	@extend %font-BowlbyOneSC;
+	font-size: 1.5em;
+}
+
+.navbar-menu {
+	position: absolute;
+	width: 100%;
+}
+
+@media screen and (max-width: 1087px) {
+	.navbar-menu {
+		box-shadow: 0 20px 90px rgba(10, 10, 10, 0.1);
+	}
+}

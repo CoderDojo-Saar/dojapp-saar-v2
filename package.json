@@ -1,0 +1,49 @@
+{
+  "name": "dojapp_v2",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cte4X/dojapp_v2.git"
+  },
+  "author": "Das App-Team des CoderDojo Saar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cte4X/dojapp_v2/issues"
+  },
+  "homepage": "https://github.com/cte4X/dojapp_v2#readme",
+  "dependencies": {
+    "bulma": "^0.7.1",
+    "cordova": "^8.0.0",
+    "cordova-android": "^6.3.0",
+    "cordova-plugin-inappbrowser": "^3.0.0",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "file-loader": "^1.1.11",
+    "jquery": "^3.3.1",
+    "material-design-icons": "^3.0.1",
+    "sass-loader": "^7.0.2"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-inappbrowser": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^0.28.11",
+    "node-sass": "^4.9.0",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^2.1.5"
+  }
+}

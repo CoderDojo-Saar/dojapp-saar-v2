@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="de.coderdojo-saar.dojapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
+    <name>CoderDojo Saar</name>
+    <description>
+        Die App des CoderDojo Saar.
+    </description>
+    <author email="hello@coderdojo-saar.de" href="http://coderdojo-saar.de">
+        CoderDojo Saar App Team
+    </author>
+    <icon src="resources/icon/192x192.png" />
+    <content src="welcome.html" />
+    <engine name="android" spec="^6.3.0" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
+</widget>

@@ -1,0 +1,28 @@
+// Material Icons
+@import "~material-design-icons/iconfont/material-icons.css";
+
+.material-icons {
+	vertical-align: -6px;
+}
+
+@import "bulma";
+@import "fonts";
+
+@import "simulateNativeApplication";
+@import "navbar";
+@import "table";
+
+// components
+@import "components/prioritizedBox";
+
+main {
+	@extend %font-Montserrat;
+
+	h1, h2, h3, h4, h5, h6 {
+		@extend %font-RobotoSlab;
+
+		margin-bottom: 20px;
+	}
+
+	margin: 10px 15px;
+}

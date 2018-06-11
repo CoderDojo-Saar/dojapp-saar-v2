@@ -1,0 +1,17 @@
+.table {
+	width: 100%;
+
+	thead th {
+		font-weight: bold;
+	}
+
+	tbody th {
+		font-weight: normal;
+	}
+
+	tr.only-text {
+		th {
+			text-align: center;
+		}
+	}
+}

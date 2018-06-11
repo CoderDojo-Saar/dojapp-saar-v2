@@ -1,0 +1,24 @@
+# ApacheCordova
+
+bin/*
+!/plugins
+!/plugins/android.json
+!/plugins/fetch.json
+plugins/*
+platforms/*
+
+
+# Node
+
+node_modules/
+.npm/
+
+
+# WebStorm
+
+.idea/
+
+
+# Distributed
+
+www/dist
