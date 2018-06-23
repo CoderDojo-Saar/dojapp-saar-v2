@@ -1,4 +1,5 @@
 import $ from "jquery";
+import tippy from "tippy.js";
 
 const createDateTableEntry = function (entry) {
     let location = "";
@@ -11,11 +12,11 @@ const createDateTableEntry = function (entry) {
 
     let icon = "";
 
-    if(entry.modifier.includes("special-date")) {
-        icon = "warning";
+    if(entry.modifier.includes("special-date")){
+        icon = "<i class='material-icons date-table-item-icon' title='Dieser Termin entspricht nicht der Regel'>warning</i>";
     }
 
-    return "<tr><th><i class='material-icons'>" + icon + "</i></th><th>" + entry.date.toLocaleDateString() + "</th><th>" + location + "</th></tr>";
+    return "<tr><th>" + icon + "</th><th>" + entry.date.toLocaleDateString() + "</th><th>" + location + "</th></tr>";
 };
 
 const DateTableLoader = {
@@ -78,7 +79,11 @@ const DateTableLoader = {
         } else {
             this.dates.forEach(function (entry) {
                 table.append(createDateTableEntry(entry))
-            })
+            });
+
+            tippy(".date-table-item-icon", {
+                arrow: true
+            });
         }
     }
 };
