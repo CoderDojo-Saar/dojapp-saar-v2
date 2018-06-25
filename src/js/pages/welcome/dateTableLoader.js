@@ -31,7 +31,7 @@ const DateTableLoader = {
             table.append("<tr class='is-light only-text'><th colspan='3'>Zur Zeit sind keine Termine geplant</th></tr>");
         } else {
             this.dates.forEach(function (entry) {
-                table.append(createDateTableEntry(entry))
+                if(new Date(entry["date"]).getTime() > Date.now()) table.append(createDateTableEntry(entry));
             });
 
             tippy(".date-table-item-icon", {
