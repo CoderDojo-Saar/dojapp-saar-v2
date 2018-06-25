@@ -1,75 +1,28 @@
 import $ from "jquery";
 import tippy from "tippy.js";
 
+import dates from "./dates.json";
+
 const createDateTableEntry = function (entry) {
     let location = "";
 
     if(entry.location.url === undefined) {
-        location = entry.location.title;
+        location = entry["location"]["title"]
     } else {
-        location = "<a href='javascript:cordova.InAppBrowser.open(\"" + entry.location.url + "\", \"_system\")'>" + entry.location.title + "</a>";
+        location = "<a href='javascript:cordova.InAppBrowser.open(\"" + encodeURI(entry["location"]["url"]) + "\", \"_system\")'>" + entry["location"]["title"] + "</a>";
     }
 
     let icon = "";
 
-    if(entry.modifier.includes("special-date")){
+    if(entry["modifier"].includes("special-date")){
         icon = "<i class='material-icons date-table-item-icon' title='Dieser Termin entspricht nicht der Regel'>warning</i>";
     }
 
-    return "<tr><th>" + icon + "</th><th>" + entry.date.toLocaleDateString() + "</th><th>" + location + "</th></tr>";
+    return "<tr><th>" + icon + "</th><th>" + new Date(entry["date"]).toLocaleDateString() + "</th><th>" + location + "</th></tr>";
 };
 
 const DateTableLoader = {
-    dates: [
-        {
-            date: new Date(2018, 6, 9),
-            location: {
-                title: "Alte Schmelz (St. Ingbert)",
-                url: encodeURI("https://www.google.com/maps/search/?api=1&query=Alte Schmelz, St. Ingbert, Deutschland&query_place_id=ChIJiQmkvC7IlUcRaw95fNIEDvY")
-            },
-            modifier: ["special-date"]
-        },
-        {
-            date: new Date(2018, 8, 25),
-            location: {
-                title: "LMS Saar",
-                url: encodeURI("https://www.google.com/maps/search/?api=1&query=Landesmedienanstalt Saarland, Nell-Breuning-Allee, Saarbrücken, Deutschland&query_place_id=ChIJpQ0NBGGxlUcRgk80xY1J8qQ")
-            },
-            modifier: []
-        },
-        {
-            date: new Date(2018, 9, 22),
-            location: {
-                title: "LMS Saar",
-                url: encodeURI("https://www.google.com/maps/search/?api=1&query=Landesmedienanstalt Saarland, Nell-Breuning-Allee, Saarbrücken, Deutschland&query_place_id=ChIJpQ0NBGGxlUcRgk80xY1J8qQ")
-            },
-            modifier: ["special-date"]
-        },
-        {
-            date: new Date(2018, 10, 27),
-            location: {
-                title: "LMS Saar",
-                url: encodeURI("https://www.google.com/maps/search/?api=1&query=Landesmedienanstalt Saarland, Nell-Breuning-Allee, Saarbrücken, Deutschland&query_place_id=ChIJpQ0NBGGxlUcRgk80xY1J8qQ")
-            },
-            modifier: []
-        },
-        {
-            date: new Date(2018, 11, 24),
-            location: {
-                title: "LMS Saar",
-                url: encodeURI("https://www.google.com/maps/search/?api=1&query=Landesmedienanstalt Saarland, Nell-Breuning-Allee, Saarbrücken, Deutschland&query_place_id=ChIJpQ0NBGGxlUcRgk80xY1J8qQ")
-            },
-            modifier: []
-        },
-        {
-            date: new Date(2018, 12, 15),
-            location: {
-                title: "LMS Saar",
-                url: encodeURI("https://www.google.com/maps/search/?api=1&query=Landesmedienanstalt Saarland, Nell-Breuning-Allee, Saarbrücken, Deutschland&query_place_id=ChIJpQ0NBGGxlUcRgk80xY1J8qQ")
-            },
-            modifier: ["special-date"]
-        },
-    ],
+    dates: dates,
 
     load: function () {
         let table = $("#date-table");
@@ -87,5 +40,7 @@ const DateTableLoader = {
         }
     }
 };
+
+console.log(dates);
 
 export default DateTableLoader

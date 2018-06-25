@@ -1,0 +1,42 @@
+[
+  {
+    "date": "2018-08-25",
+    "location": {
+      "title": "LMS Saar",
+      "url": "https://www.google.com/maps/search/?api=1&query=Landesmedienanstalt Saarland, Nell-Breuning-Allee, Saarbrücken, Deutschland&query_place_id=ChIJpQ0NBGGxlUcRgk80xY1J8qQ"
+    },
+    "modifier": []
+  },
+  {
+    "date": "2018-09-22",
+    "location": {
+      "title": "LMS Saar",
+      "url": "https://www.google.com/maps/search/?api=1&query=Landesmedienanstalt Saarland, Nell-Breuning-Allee, Saarbrücken, Deutschland&query_place_id=ChIJpQ0NBGGxlUcRgk80xY1J8qQ"
+    },
+    "modifier": ["special-date"]
+  },
+  {
+    "date": "2018-10-27",
+    "location": {
+      "title": "LMS Saar",
+      "url": "https://www.google.com/maps/search/?api=1&query=Landesmedienanstalt Saarland, Nell-Breuning-Allee, Saarbrücken, Deutschland&query_place_id=ChIJpQ0NBGGxlUcRgk80xY1J8qQ"
+    },
+    "modifier": []
+  },
+  {
+    "date": "2018-11-24",
+    "location": {
+      "title": "LMS Saar",
+      "url": "https://www.google.com/maps/search/?api=1&query=Landesmedienanstalt Saarland, Nell-Breuning-Allee, Saarbrücken, Deutschland&query_place_id=ChIJpQ0NBGGxlUcRgk80xY1J8qQ"
+    },
+    "modifier": []
+  },
+  {
+    "date": "2018-12-15",
+    "location": {
+      "title": "LMS Saar",
+      "url": "https://www.google.com/maps/search/?api=1&query=Landesmedienanstalt Saarland, Nell-Breuning-Allee, Saarbrücken, Deutschland&query_place_id=ChIJpQ0NBGGxlUcRgk80xY1J8qQ"
+    },
+    "modifier": ["special-date"]
+  }
+]
