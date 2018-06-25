@@ -5,20 +5,29 @@ import dates from "./dates.json";
 
 const createDateTableEntry = function (entry) {
     let location = "";
-
     if(entry.location.url === undefined) {
         location = entry["location"]["title"]
     } else {
-        location = "<a href='javascript:cordova.InAppBrowser.open(\"" + encodeURI(entry["location"]["url"]) + "\", \"_system\")'>" + entry["location"]["title"] + "</a>";
+        location = "<a href='javascript:cordova.InAppBrowser.open(\"" + encodeURI(entry.location.url) + "\", \"_system\")'>" + entry.location.title + "</a>";
+    }
+
+    let sponsor = "";
+    if(entry.sponsor === undefined) {
+        sponsor = "<span class='is-disabled'>Kein Sponsor</span>";
+    } else {
+        if(entry.sponsor.url === undefined) {
+            sponsor = entry.sponsor.title;
+        } else {
+            sponsor = "<a href='javascript:cordova.InAppBrowser.open(\"" + encodeURI(entry.sponsor.url) + "\", \"_system\")'>" + entry.sponsor.title + "</a>";
+        }
     }
 
     let icon = "";
-
     if(entry["modifier"].includes("special-date")){
         icon = "<i class='material-icons date-table-item-icon' title='Dieser Termin entspricht nicht der Regel'>warning</i>";
     }
 
-    return "<tr><th>" + icon + "</th><th>" + entry.startDate.toLocaleString().slice(0, -3) + "</th><th>" + new Date(entry.endDate - entry.startDate).toLocaleTimeString().slice(0, -3) + "</th><th>" + location + "</th></tr>";
+    return "<tr><th>" + icon + "</th><th>" + entry.startDate.toLocaleString().slice(0, -3) + "</th><th>" + new Date(entry.endDate - entry.startDate).toLocaleTimeString().slice(0, -3) + "</th><th>" + location + "</th><th>" + sponsor + "</th></tr>";
 };
 
 const DateTableLoader = {

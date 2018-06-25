@@ -1,5 +1,17 @@
 [
   {
+    "startDate": "2017-10-28T14:00",
+    "endDate": "2017-08-25T17:00",
+    "location": {
+      "title": "Ligatura"
+    },
+    "sponsor": {
+      "title": "eurodata",
+      "url": "https://www.eurodata.de/"
+    },
+    "modifier": []
+  },
+  {
     "startDate": "2018-08-25T14:00",
     "endDate": "2018-08-25T17:00",
     "location": {
