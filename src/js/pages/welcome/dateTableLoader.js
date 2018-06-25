@@ -18,7 +18,7 @@ const createDateTableEntry = function (entry) {
         icon = "<i class='material-icons date-table-item-icon' title='Dieser Termin entspricht nicht der Regel'>warning</i>";
     }
 
-    return "<tr><th>" + icon + "</th><th>" + new Date(entry["date"]).toLocaleDateString() + "</th><th>" + location + "</th></tr>";
+    return "<tr><th>" + icon + "</th><th>" + entry.startDate.toLocaleString().slice(0, -3) + "</th><th>" + new Date(entry.endDate - entry.startDate).toLocaleTimeString().slice(0, -3) + "</th><th>" + location + "</th></tr>";
 };
 
 const DateTableLoader = {
@@ -31,7 +31,10 @@ const DateTableLoader = {
             table.append("<tr class='is-light only-text'><th colspan='3'>Zur Zeit sind keine Termine geplant</th></tr>");
         } else {
             this.dates.forEach(function (entry) {
-                if(new Date(entry["date"]).getTime() > Date.now()) table.append(createDateTableEntry(entry));
+                entry.startDate = new Date(entry["startDate"]);
+                entry.endDate = new Date(entry["endDate"]);
+
+                if(entry.endDate.getTime() > Date.now()) table.append(createDateTableEntry(entry));
             });
 
             tippy(".date-table-item-icon", {
@@ -40,7 +43,5 @@ const DateTableLoader = {
         }
     }
 };
-
-console.log(dates);
 
 export default DateTableLoader

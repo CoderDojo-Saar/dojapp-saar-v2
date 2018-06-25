@@ -1,6 +1,16 @@
 [
   {
-    "date": "2018-08-25",
+    "startDate": "2018-06-25T14:00",
+    "endDate": "2018-06-25T17:00",
+    "location": {
+      "title": "lulz",
+      "url": "https://www.google.com/maps/search/?api=1&query=Landesmedienanstalt Saarland, Nell-Breuning-Allee, Saarbrücken, Deutschland&query_place_id=ChIJpQ0NBGGxlUcRgk80xY1J8qQ"
+    },
+    "modifier": []
+  },
+  {
+    "startDate": "2018-08-25T14:00",
+    "endDate": "2018-08-25T17:00",
     "location": {
       "title": "LMS Saar",
       "url": "https://www.google.com/maps/search/?api=1&query=Landesmedienanstalt Saarland, Nell-Breuning-Allee, Saarbrücken, Deutschland&query_place_id=ChIJpQ0NBGGxlUcRgk80xY1J8qQ"
@@ -8,7 +18,8 @@
     "modifier": []
   },
   {
-    "date": "2018-09-22",
+    "startDate": "2018-09-22T14:00",
+    "endDate": "2018-09-22T17:00",
     "location": {
       "title": "LMS Saar",
       "url": "https://www.google.com/maps/search/?api=1&query=Landesmedienanstalt Saarland, Nell-Breuning-Allee, Saarbrücken, Deutschland&query_place_id=ChIJpQ0NBGGxlUcRgk80xY1J8qQ"
@@ -16,7 +27,8 @@
     "modifier": ["special-date"]
   },
   {
-    "date": "2018-10-27",
+    "startDate": "2018-10-27T14:00",
+    "endDate": "2018-10-27T17:00",
     "location": {
       "title": "LMS Saar",
       "url": "https://www.google.com/maps/search/?api=1&query=Landesmedienanstalt Saarland, Nell-Breuning-Allee, Saarbrücken, Deutschland&query_place_id=ChIJpQ0NBGGxlUcRgk80xY1J8qQ"
@@ -24,7 +36,8 @@
     "modifier": []
   },
   {
-    "date": "2018-11-24",
+    "startDate": "2018-11-24T14:00",
+    "endDate": "2018-11-24T17:00",
     "location": {
       "title": "LMS Saar",
       "url": "https://www.google.com/maps/search/?api=1&query=Landesmedienanstalt Saarland, Nell-Breuning-Allee, Saarbrücken, Deutschland&query_place_id=ChIJpQ0NBGGxlUcRgk80xY1J8qQ"
@@ -32,7 +45,8 @@
     "modifier": []
   },
   {
-    "date": "2018-12-15",
+    "startDate": "2018-12-15T14:00",
+    "endDate": "2018-12-15T17:00",
     "location": {
       "title": "LMS Saar",
       "url": "https://www.google.com/maps/search/?api=1&query=Landesmedienanstalt Saarland, Nell-Breuning-Allee, Saarbrücken, Deutschland&query_place_id=ChIJpQ0NBGGxlUcRgk80xY1J8qQ"

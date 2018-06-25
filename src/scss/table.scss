@@ -1,6 +1,4 @@
 .table {
-	width: 100%;
-
 	thead th {
 		font-weight: bold;
 	}
@@ -13,5 +11,9 @@
 		th {
 			text-align: center;
 		}
+	}
+
+	tr {
+		white-space: nowrap;
 	}
 }
