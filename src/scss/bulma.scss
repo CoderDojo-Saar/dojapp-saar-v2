@@ -12,3 +12,7 @@ $red: #ff4c70;
 
 @import "../../node_modules/bulma";
 @import "../../node_modules/bulma-switch";
+
+a, a:focus, a:active {
+	color: $blue;
+}
