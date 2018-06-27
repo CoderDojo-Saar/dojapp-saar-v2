@@ -1,7 +1,11 @@
 import $ from "jquery";
 import tippy from "tippy.js";
+import moment from "moment";
+import momentDurationFormatSetup from "moment-duration-format";
 
 import dates from "./dates.json";
+
+momentDurationFormatSetup(moment);
 
 const createDateTableEntry = function (entry) {
     let location = "";
@@ -27,7 +31,7 @@ const createDateTableEntry = function (entry) {
         icon = "<i class='material-icons date-table-item-icon' title='Dieser Termin entspricht nicht der Regel'>warning</i>";
     }
 
-    return "<tr><th>" + icon + "</th><th>" + entry.startDate.toLocaleString().slice(0, -3) + "</th><th>" + new Date(entry.endDate - entry.startDate).toLocaleTimeString().slice(0, -3) + "</th><th>" + location + "</th><th>" + sponsor + "</th></tr>";
+    return "<tr><th>" + icon + "</th><th>" + entry.startDate.toLocaleString().slice(0, -3) + "</th><th>" + moment.duration(moment(entry.endDate).diff(entry.startDate)).format("hh:mm") + "</th><th>" + location + "</th><th>" + sponsor + "</th></tr>";
 };
 
 const DateTableLoader = {
