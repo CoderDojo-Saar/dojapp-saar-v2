@@ -59,7 +59,6 @@ const DateTableLoader = {
         let that = this;
 
         switch_.click(function () {
-            console.log(("click"));
             that.load(switch_.prop("checked"));
         });
     }
