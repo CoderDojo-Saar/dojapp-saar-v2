@@ -33,8 +33,9 @@ const createDateTableEntry = function (entry) {
 const DateTableLoader = {
     dates: dates,
 
-    load: function () {
+    load: function (onlyFutureDates) {
         let table = $("#date-table");
+        table.empty();
 
         if(this.dates.length < 0) {
             table.append("<tr class='is-light only-text'><th colspan='3'>Zur Zeit sind keine Termine geplant</th></tr>");
@@ -43,13 +44,24 @@ const DateTableLoader = {
                 entry.startDate = new Date(entry["startDate"]);
                 entry.endDate = new Date(entry["endDate"]);
 
-                if(entry.endDate.getTime() > Date.now()) table.append(createDateTableEntry(entry));
+                if(!onlyFutureDates || entry.endDate.getTime() > Date.now()) table.append(createDateTableEntry(entry));
             });
 
             tippy(".date-table-item-icon", {
                 arrow: true
             });
         }
+    },
+
+    registerSwitchEvent: function () {
+        let switch_ = $("#showOnlyFutureDates");
+
+        let that = this;
+
+        switch_.click(function () {
+            console.log(("click"));
+            that.load(switch_.prop("checked"));
+        });
     }
 };
 

@@ -8,5 +8,6 @@ $(document).ready(function () {
     BulmaUI.register();
 
     // load the table
-    DateTableLoader.load();
+    DateTableLoader.load(true);
+    DateTableLoader.registerSwitchEvent();
 });
