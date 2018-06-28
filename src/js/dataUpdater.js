@@ -4,6 +4,8 @@ function isOnline() {
     return true;//navigator.connection.type !== Connection.NONE;
 }
 
+let datesUpdatedEvent = new Event("datesUpdated");
+
 const DataUpdater = {
     updateAll: function () {
         this.updateDates();
@@ -32,6 +34,10 @@ const DataUpdater = {
 
             request("https://api.graph.cool/simple/v1/cjiyc5bxf0yny0149wcbhgtnd", query).then(data => {
                 window.localStorage.setItem("datesList", JSON.stringify(data["allDates"]));
+
+                console.log("Success");
+
+                dispatchEvent(datesUpdatedEvent);
             });
         } else {
             console.log("Failed: No connection!")
@@ -39,4 +45,5 @@ const DataUpdater = {
     }
 };
 
+export { datesUpdatedEvent };
 export default DataUpdater;

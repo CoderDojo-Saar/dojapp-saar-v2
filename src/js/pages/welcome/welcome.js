@@ -9,5 +9,5 @@ $(document).ready(function () {
 
     // load the table
     DateTableLoader.load(true);
-    DateTableLoader.registerSwitchEvent();
+    DateTableLoader.registerEvents();
 });
