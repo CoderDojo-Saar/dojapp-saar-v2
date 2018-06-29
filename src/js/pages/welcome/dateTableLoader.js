@@ -3,6 +3,8 @@ import tippy from "tippy.js";
 import moment from "moment";
 import momentDurationFormatSetup from "moment-duration-format";
 
+import DataUpdater from "../../dataUpdater";
+
 momentDurationFormatSetup(moment);
 
 const createDateTableEntry = function (entry) {
@@ -33,13 +35,17 @@ const createDateTableEntry = function (entry) {
 };
 
 const DateTableLoader = {
-    load: function (onlyFutureDates) {
+    load: function (onlyFutureDates = null) {
+        if(onlyFutureDates === null) {
+            onlyFutureDates = $("#show-only-future-dates").prop("checked");
+        }
+
         let dates = JSON.parse(window.localStorage.getItem("datesList"));
 
         let table = $("#date-table");
         table.empty();
 
-        if(dates.length < 0) {
+        if(dates.length === 0) {
             table.append("<tr class='is-light only-text'><th colspan='3'>Zur Zeit sind keine Termine geplant</th></tr>");
         } else {
             dates.forEach(function (entry) {
@@ -56,17 +62,36 @@ const DateTableLoader = {
     },
 
     registerEvents: function () {
-        let switch_ = $("#showOnlyFutureDates");
-
         let that = this;
 
-        switch_.click(function () {
-            that.load(switch_.prop("checked"));
+        let onlyFutureDatesSwitch = $("#show-only-future-dates");
+        let syncDatesBtn = $("#sync-dates");
+
+        onlyFutureDatesSwitch.click(function () {
+            that.load();
         });
 
-        addEventListener("datesUpdated", function () {
-            that.load(switch_.prop("checked"));
+        syncDatesBtn.click(function () {
+            syncDatesBtn.addClass("is-loading");
+
+            DataUpdater.updateDates().then(function () {
+                that.load();
+
+                syncDatesBtn.removeClass("is-loading");
+            }, function () {
+                navigator.notification.alert("Du scheinst nicht mit dem Internet verbunden zu sein.", null, "Synchronisation fehlgeschlagen");
+
+                syncDatesBtn.removeClass("is-loading");
+            });
         });
+
+        document.addEventListener("online", function () {
+            syncDatesBtn.prop("disabled", false);
+        }, false);
+
+        document.addEventListener("offline", function () {
+            syncDatesBtn.prop("disabled", true);
+        }, false);
     }
 };
 
