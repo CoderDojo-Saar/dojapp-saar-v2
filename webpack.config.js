@@ -6,7 +6,7 @@ const src = {
 };
 
 const pages = {
-    "welcome.page": path.join(src.pageJs, "welcome", "welcome.js")
+    "dates.page": path.join(src.pageJs, "dates", "dates.js")
 };
 
 const config = {

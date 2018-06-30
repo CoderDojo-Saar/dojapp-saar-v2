@@ -8,7 +8,7 @@ const NavbarLoader = {
     menuItems: [
         {
             title: "Willkommen",
-            url: "welcome.html",
+            url: "dates.html",
             icon: "event_note"
         }
     ],
