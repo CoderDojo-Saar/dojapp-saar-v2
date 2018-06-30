@@ -9,6 +9,8 @@ function loadTable() {
     $(document).ready(function () {
         DateTableLoader.load();
         DateTableLoader.registerEvents();
+
+        $("#sync-dates").removeClass("is-loading");
     });
 }
 
