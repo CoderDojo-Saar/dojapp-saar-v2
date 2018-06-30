@@ -22,3 +22,9 @@ node_modules/
 # Distributed
 
 www/dist
+
+
+# Android Build
+
+*.jks
+build.json
