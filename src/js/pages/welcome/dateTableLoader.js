@@ -3,7 +3,7 @@ import tippy from "tippy.js";
 import moment from "moment";
 import momentDurationFormatSetup from "moment-duration-format";
 
-import dates from "./dates.json";
+import DataUpdater from "../../dataUpdater";
 
 momentDurationFormatSetup(moment);
 
@@ -16,7 +16,7 @@ const createDateTableEntry = function (entry) {
     }
 
     let sponsor = "";
-    if(entry.sponsor === undefined) {
+    if(entry.sponsor === null) {
         sponsor = "<span class='is-disabled'>Kein Sponsor</span>";
     } else {
         if(entry.sponsor.url === undefined) {
@@ -35,16 +35,20 @@ const createDateTableEntry = function (entry) {
 };
 
 const DateTableLoader = {
-    dates: dates,
+    load: function (onlyFutureDates = null) {
+        if(onlyFutureDates === null) {
+            onlyFutureDates = $("#show-only-future-dates").prop("checked");
+        }
 
-    load: function (onlyFutureDates) {
+        let dates = JSON.parse(window.localStorage.getItem("datesList"));
+
         let table = $("#date-table");
         table.empty();
 
-        if(this.dates.length < 0) {
+        if(dates.length === 0) {
             table.append("<tr class='is-light only-text'><th colspan='3'>Zur Zeit sind keine Termine geplant</th></tr>");
         } else {
-            this.dates.forEach(function (entry) {
+            dates.forEach(function (entry) {
                 entry.startDate = new Date(entry["startDate"]);
                 entry.endDate = new Date(entry["endDate"]);
 
@@ -57,14 +61,37 @@ const DateTableLoader = {
         }
     },
 
-    registerSwitchEvent: function () {
-        let switch_ = $("#showOnlyFutureDates");
-
+    registerEvents: function () {
         let that = this;
 
-        switch_.click(function () {
-            that.load(switch_.prop("checked"));
+        let onlyFutureDatesSwitch = $("#show-only-future-dates");
+        let syncDatesBtn = $("#sync-dates");
+
+        onlyFutureDatesSwitch.click(function () {
+            that.load();
         });
+
+        syncDatesBtn.click(function () {
+            syncDatesBtn.addClass("is-loading");
+
+            DataUpdater.updateDates().then(function () {
+                that.load();
+
+                syncDatesBtn.removeClass("is-loading");
+            }, function () {
+                navigator.notification.alert("Du scheinst nicht mit dem Internet verbunden zu sein.", null, "Synchronisation fehlgeschlagen");
+
+                syncDatesBtn.removeClass("is-loading");
+            });
+        });
+
+        document.addEventListener("online", function () {
+            syncDatesBtn.prop("disabled", false);
+        }, false);
+
+        document.addEventListener("offline", function () {
+            syncDatesBtn.prop("disabled", true);
+        }, false);
     }
 };
 
