@@ -5,6 +5,8 @@ import BulmaUI from "../../bulmaUI.js";
 import DateTableLoader from "./dateTableLoader";
 import DataUpdater from "../../dataUpdater";
 
+import NavbarLoader from "../../navbarLoader";
+
 function loadTable() {
     $(document).ready(function () {
         DateTableLoader.load();
@@ -17,6 +19,8 @@ function loadTable() {
 DataUpdater.updateDates().then(loadTable, loadTable);
 
 $(document).ready(function () {
+    NavbarLoader.load("dates");
+
     BulmaUI.register();
 
     let syncDatesBtn = $("#sync-dates");
