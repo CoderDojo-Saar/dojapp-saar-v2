@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de" class="has-background-white">
+<head>
+    <script src="cordova.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Kontakt</title>
+
+    <script src="dist/contact.page.js"></script>
+</head>
+<body>
+<nav class="navbar has-background-white-ter" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <span class="navbar-name navbar-item has-text-light-red">CoderDojo Saar</span>
+        <a role="button" class="navbar-burger fade-btn" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" id="menu-item-container">
+        </div>
+    </div>
+</nav>
+<main>
+    <h1 class="title is-1">Kontakt</h1>
+
+    <h2 class="title is-2">Twitter</h2>
+    <h2 class="subtitle is-5"><a href="javascript:cordova.InAppBrowser.open('https://twitter.com/coderdojo_saar', '_system')">@coderdojo_saar</a></h2>
+    <p>
+        Auf Twitter findest du Informationen zu Events, neuen Materialien und Robotern. Außerdem kannst du mit uns in Kontakt treten.
+    </p>
+
+    <h2 class="title is-2">E-Mail</h2>
+    <h2 class="subtitle is-5"><a href="mailto:hello@coderdojo-saar.de">hello@coderdojo-saar.de</a></h2>
+    <p>
+        Wenn du dich für das nächste Dojo anmelden willst, schreib uns am besten eine E-Mail oder <a href="javascript:cordova.InAppBrowser.open('https://coderdojo-saar.github.io/anmeldung/', '_system')">verwende unser Anmeldeformular.</a>
+    </p>
+
+    <h2 class="title is-2">Slack</h2>
+    <h2 class="subtitle is-5"><a href="javascript:navigator.notification.alert('Wenn du unserem Slack beitreten möchtest, wende dich einfach an einen Mentor und bitte ihn, dich zum Slack einzuladen.', null, 'Slack beitreten')">coderdojo-saar.slack.com</a></h2>
+    <p>
+        Auf Slack kannst du dich mit anderen Teilnehmern austauschen, um Hilfe bei einem Problem bitten oder dich für’s nächste Dojo anmelden.
+    </p>
+</main>
+</body>
+</html>

@@ -8,8 +8,9 @@
         CoderDojo Saar App Team
     </author>
     <icon src="resources/icon/192x192.png" />
-    <content src="welcome.html" />
+    <content src="dates.html" />
     <access origin="https://api.graph.cool/simple/v1/dojapp" />
+    <allow-intent href="mailto:*" />
     <engine name="android" spec="^7.1.0" />
     <engine name="browser" spec="^5.0.3" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />

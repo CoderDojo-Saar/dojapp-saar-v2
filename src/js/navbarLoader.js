@@ -7,9 +7,14 @@ const createMenuItem = function (entry) {
 const NavbarLoader = {
     menuItems: [
         {
-            title: "Willkommen",
+            title: "Termine",
             url: "dates.html",
             icon: "event_note"
+        },
+        {
+            title: "Kontakt",
+            url: "contact.html",
+            icon: "phone"
         }
     ],
 
