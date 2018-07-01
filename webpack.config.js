@@ -1,3 +1,5 @@
+const IS_PRODUCTION = true;
+
 const path = require("path");
 
 const src = {
@@ -22,7 +24,7 @@ const config = {
     plugins: [
 
     ],
-    mode: "development",
+    mode: IS_PRODUCTION ? "production" : "development",
     devtool: "inline-source-map",
     module: {
         rules: [
