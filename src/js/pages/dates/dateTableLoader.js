@@ -9,7 +9,7 @@ momentDurationFormatSetup(moment);
 
 const createDateTableEntry = function (entry) {
     let location = "";
-    if(entry.location.url === undefined) {
+    if(entry.location.url === null || entry.location.url === "") {
         location = entry["location"]["title"]
     } else {
         location = "<a href='javascript:cordova.InAppBrowser.open(\"" + encodeURI(entry.location.url) + "\", \"_system\")'>" + entry.location.title + "</a>";
@@ -19,7 +19,7 @@ const createDateTableEntry = function (entry) {
     if(entry.sponsor === null) {
         sponsor = "<span class='is-disabled'>Kein Sponsor</span>";
     } else {
-        if(entry.sponsor.url === undefined) {
+        if(entry.sponsor.url === null || entry.sponsor.url === "") {
             sponsor = entry.sponsor.title;
         } else {
             sponsor = "<a href='javascript:cordova.InAppBrowser.open(\"" + encodeURI(entry.sponsor.url) + "\", \"_system\")'>" + entry.sponsor.title + "</a>";
@@ -27,7 +27,7 @@ const createDateTableEntry = function (entry) {
     }
 
     let icon = "";
-    if(entry["modifier"].includes("special-date")){
+    if(entry["modifier"].includes("SpecialDate")){
         icon = "<i class='material-icons date-table-item-icon' title='Dieser Termin entspricht nicht der Regel'>warning</i>";
     }
 
