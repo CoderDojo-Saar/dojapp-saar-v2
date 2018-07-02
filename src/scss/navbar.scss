@@ -1,11 +1,7 @@
+@import "~bulma/sass/components/navbar";
 .navbar-name {
 	@extend %font-BowlbyOneSC;
 	font-size: 1.5em;
-}
-
-.navbar-menu {
-	position: absolute;
-	width: 100%;
 }
 
 @media screen and (max-width: 1087px) {
