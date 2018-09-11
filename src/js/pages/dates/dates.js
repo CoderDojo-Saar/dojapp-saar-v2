@@ -8,25 +8,28 @@ import DataUpdater from "../../dataUpdater";
 import NavbarLoader from "../../navbarLoader";
 
 function loadTable() {
-    $(document).ready(function () {
-        DateTableLoader.load();
-        DateTableLoader.registerEvents();
+  $(document).ready(function() {
+    DateTableLoader.load();
+    DateTableLoader.registerEvents();
 
-        $("#sync-dates").removeClass("is-loading");
-    });
+    $("#sync-dates").removeClass("is-loading");
+  });
 }
 
 DataUpdater.updateDates().then(loadTable, loadTable);
 
-$(document).ready(function () {
-    NavbarLoader.load("dates");
+const onDeviceReady = function() {
+  NavbarLoader.load("dates");
 
-    BulmaUI.register();
+  BulmaUI.register();
 
-    let syncDatesBtn = $("#sync-dates");
-    if(navigator.connection.type === Connection.NONE) {
-        syncDatesBtn.prop("disabled", true);
-    } else {
-        syncDatesBtn.prop("disabled", false);
-    }
-});
+  let syncDatesBtn = $("#sync-dates");
+  if (navigator.connection.type === Connection.NONE) {
+    syncDatesBtn.prop("disabled", true);
+  } else {
+    syncDatesBtn.prop("disabled", false);
+  }
+};
+
+// Note: To use Cordova related functionality, we should wait until deviceready fired instead of document.ready.
+document.addEventListener("deviceready", onDeviceReady, false);

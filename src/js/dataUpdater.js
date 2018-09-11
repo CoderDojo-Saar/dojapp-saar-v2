@@ -11,7 +11,7 @@ const DataUpdater = {
             if (isOnline()) {
                 const query = `
             {
-              allDates {
+              allDates(orderBy:startDate_ASC) {
                 startDate
                 endDate
                 modifier
