@@ -5,6 +5,7 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
+    "browser": "cordova run browser",
     "release:android": "cordova build android --release --buildConfig ./build.json"
   },
   "repository": {
