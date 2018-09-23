@@ -23,7 +23,7 @@
     "bulma-switch": "^2.0.0",
     "cordova": "^8.0.0",
     "cordova-android": "^7.1.1",
-    "cordova-browser": "^5.0.3",
+    "cordova-browser": "^5.0.4",
     "cordova-plugin-dialogs": "^2.0.1",
     "cordova-plugin-inappbrowser": "^3.0.0",
     "cordova-plugin-network-information": "^2.0.1",
