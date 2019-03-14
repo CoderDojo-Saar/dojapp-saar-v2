@@ -35,7 +35,7 @@
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",
     "sass-loader": "^7.1.0",
-    "tippy.js": "^2.6.0"
+    "tippy.js": "^4.2.0"
   },
   "cordova": {
     "plugins": {
